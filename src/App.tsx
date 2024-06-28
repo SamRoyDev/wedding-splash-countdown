@@ -1,27 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 import { styled } from "@stitches/react";
+import BackgroundVideo from "./components/BackgroundVideo";
+import TitleSection from "./components/TitleSection";
+import BackgroundImage from "./components/BackgroundImage";
 
-function App() {
+const Layout = styled("div", {
+  width: "100%",
+  height: "100vh",
+  overflow: "hidden",
+  margin: "0px auto",
+  position: "relative",
+});
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <BackgroundImage image="./assets/72.jpg" />
+      <BackgroundVideo videoSrc="./assets/BackgroundVideo.mp4" />
+      <TitleSection
+        names="Sam Roy and Julie Voorhes"
+        date="06.21.2025"
+        location="Cedar City, Utah"
+      />
+    </Layout>
   );
-}
+};
 
 export default App;
