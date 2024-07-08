@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+
 .App {
   text-align: center;
 }
@@ -13,9 +16,31 @@
   }
 }
 
+/* Responsive adjustments for smaller devices */
+@media (max-width: 768px) {
+  body,
+  .App-header,
+  .TitleWrapper,
+  .GroomBride,
+  .Schedule,
+  footer {
+    font-size: calc(12px + 2vw); /* Adjusts font sizes more appropriately */
+  }
+  .countdown-item {
+    width: 25vw; /* Smaller width on mobile */
+    height: 25vw; /* Smaller height on mobile */
+    font-size: calc(3vw); /* Smaller font size on mobile */
+  }
+  .TitleWrapper {
+    font-size: calc(14px + 3vw); /* Increase font size for better visibility */
+  }
+  .App-header {
+    font-size: calc(10px + 2vmin); /* Corrected calculation */
+  }
+}
+
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,11 +53,103 @@
   color: #61dafb;
 }
 
+body {
+  font-family: "Great Vibes";
+  font-weight: 800;
+  margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.countdown-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: "Roboto", sans-serif;
+  
+}
+
+.countdown-item {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 30px;
+  margin: 10px;
+  padding-top: 10px;
+  position: relative;
+  width: calc(50px + 2vw); /* Dynamic width based on viewport width */
+  height: calc(50px + 2vw); /* Dynamic height based on viewport width */
+  font-size: calc(2vh + 1vw); /* Responsive font size */
+}
+
+.countdown-item span {
+  color: #ffffff;
+  font-size: calc(1vh + 1vmin);
+  text-transform: uppercase;
+}
+
+.countdown-svg {
+  position: absolute;
+  display: flex;
+  stroke: white;
+  top: 0;
+  left: 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.TitleWrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  top: calc(50vh + -10vw) ;
+  color: white;
+  text-align: center;
+  text-shadow: 0px 1px 3px rgba(158, 158, 158, 0.5);
+  animation: fadein 3s;
+  z-index: 10;
+}
+
+.GroomBride {
+  font-size: 9.5vh;
+  font-weight: bold;
+}
+
+.Schedule {
+  font-size: 5vh;
+}
+
+footer {
+  padding: 20px 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
