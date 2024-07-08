@@ -42,7 +42,7 @@ class Countdown extends React.Component<CountdownProps, CountdownState> {
         days: days.toString(),
         hours: hours.toString(),
         minutes: minutes.toString(),
-        seconds: seconds.toString()
+        seconds: seconds.toString(),
       });
     }, 1000);
   }
@@ -75,17 +75,24 @@ class Countdown extends React.Component<CountdownProps, CountdownState> {
             <CountdownItem radius={hoursRadius} time={hours} label="Hours" />
           )}
           {minutes && (
-            <CountdownItem radius={minutesRadius} time={minutes} label="Minutes" />
+            <CountdownItem
+              radius={minutesRadius}
+              time={minutes}
+              label="Minutes"
+            />
           )}
           {seconds && (
-            <CountdownItem radius={secondsRadius} time={seconds} label="Seconds" />
+            <CountdownItem
+              radius={secondsRadius}
+              time={seconds}
+              label="Seconds"
+            />
           )}
         </div>
       </div>
     );
   }
 }
-
 interface CountdownItemProps {
   radius: number;
   time: string;
@@ -102,7 +109,6 @@ const CountdownItem: React.FC<CountdownItemProps> = ({
     <span>{label}</span>
   </div>
 );
-
 
 function polarToCartesian(
   centerX: number,
