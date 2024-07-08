@@ -1,47 +1,36 @@
-import React from 'react';
-import { styled } from "@stitches/react";
+import React from "react";
+import Countdown from "./Countdown";
+import "../App.css"; // Ensure the CSS file has the correct path and contains the required styles
 
 interface TitleSectionProps {
   names: string;
   date: string;
   location: string;
+  content: string;
 }
 
-const TitleWrapper = styled("div", {
-  position: "absolute",
-  width: "100%",
-  top: "20%",
-  left: "50%",
-  color: "white",
-  transform: "translate(-50%, -50%)",
-  textAlign: "center",
-  textShadow: "-1px 0 #9e9e9e, 0 2px #9e9e9e, 2px 0 #9e9e9e, 0 -1px #9e9e9e",
-  animation: "fadein 3s",
-  zIndex: 10,
-});
-
-const GroomBride = styled("p", {
-  fontSize: "9.5vh",
-  fontWeight: "bold",
-  opacity: 0.9,
-  marginBottom: 16,
-});
-
-const Schedule = styled("p", {
-  fontSize: "5vh",
-  opacity: 0.65,
-  marginBottom: 24,
-});
-
-const TitleSection: React.FC<TitleSectionProps> = ({ names, date, location }) => (
-  <TitleWrapper>
-    <GroomBride>{names}</GroomBride>
-    <Schedule>
+const TitleSection: React.FC<TitleSectionProps> = ({
+  names,
+  date,
+  location,
+  content
+}) => (
+  <div className="TitleWrapper">
+    <p className="GroomBride">{names}</p>
+    <Countdown
+      timeTillDate="06 21 2025, 6:00 pm"
+      timeFormat="MM DD YYYY, h:mm a"
+    />
+    <p className="Schedule">
       {date}
       <br />
       {location}
-    </Schedule>
-  </TitleWrapper>
+      <p>
+      <br />
+      {content}
+      </p>
+    </p>
+  </div>
 );
 
 export default TitleSection;
